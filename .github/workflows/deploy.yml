@@ -1,29 +1,43 @@
-# ✅ 新增：赋予工作流写入仓库的权限
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
 name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
 
+# 赋予工作流写入仓库的权限
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      
-      - uses: actions/setup-node@v3
+      # 1. 检出代码
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. 设置 Node.js 环境 (关键步骤)
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-          
-      - run: npm install
-      - run: npm run docs:build
-      
-      - uses: peaceiris/actions-gh-pages@v3
+          node-version: '18'
+          cache: 'npm'
+
+      # 3. 安装依赖
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      # 4. 构建项目
+      - name: Build
+        run: npm run docs:build
+
+      # 5. 部署到 GitHub Pages
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/.vitepress/dist
+          keep_files: false
+          force_orphan: true
