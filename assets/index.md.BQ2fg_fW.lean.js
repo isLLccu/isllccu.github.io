@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as r,ae as l}from"./chunks/framework.BvHJbMD4.js";const _=JSON.parse('{"title":"欢迎来到 isLLblog","description":"","frontmatter":{},"headers":[],"relativePath":"index.md","filePath":"index.md"}'),i={name:"index.md"};function o(n,a,s,c,d,u){return t(),r("div",null,[...a[0]||(a[0]=[l("",8)])])}const p=e(i,[["render",o]]);export{_ as __pageData,p as default};
