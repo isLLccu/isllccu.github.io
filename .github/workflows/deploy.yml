@@ -1,3 +1,9 @@
+# ✅ 新增：赋予工作流写入仓库的权限
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 name: Deploy to GitHub Pages
 
 on:
