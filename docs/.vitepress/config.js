@@ -1,7 +1,7 @@
 export default {
     title: "isLLblog",
     description: "我的技术成长之路",
-    base: '/my-tech-blog/',
+    base: '/',
 
     themeConfig: {
         nav: [
