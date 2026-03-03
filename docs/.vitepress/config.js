@@ -17,7 +17,7 @@ export default {
                     text: '技术文章',
                     items: [
                         // ✅ 确保这里指向具体的文件名 (相对路径)
-                        { text: '从零搭建个人技术博客', link: '/posts/first-post' }
+                        { text: '从拟合数据到学习物理：算子学习深度解析', link: '/posts/first-post' }
                     ]
                 }
             ]
